@@ -17,34 +17,34 @@
 	let title_element: HTMLParagraphElement;
 
 	onMount(() => {
-		(async () => {
+		const cycle = async (elem: HTMLParagraphElement) => {
 			let i = 0;
 			titles.sort(() => Math.random() - 0.5);
 			while (true) {
-				await animate(title_element, { y: [0, -10], opacity: [1, 0] }, { duration: 0.2 });
+				await animate(elem, { y: [0, -10], opacity: [1, 0] }, { duration: 0.2 });
 				title_element.textContent = titles[i];
-				await animate(title_element, { y: [10, 0], opacity: [0, 1] }, { duration: 0.2 });
+				await animate(elem, { y: [10, 0], opacity: [0, 1] }, { duration: 0.2 });
 				await new Promise((resolve) => setTimeout(resolve, 3000));
 				i = (i + 1) % titles.length;
 			}
-		})();
+		};
+		cycle(title_element);
 	});
 </script>
 
-<div class="flex w-8/12 flex-col items-center justify-between md:flex-row">
+<!-- Laptops -->
+<div class="hidden w-8/12 items-center justify-between md:flex">
 	<div class="flex flex-col items-start justify-center">
 		<div class="flex items-center justify-start">
 			<div class="gradient-p1-p3 mr-8 h-32 w-0.5"></div>
 			<div class="flex flex-col items-start justify-center">
-				<h1 class="text-2xl font-bold md:text-5xl">Hello, I'm Esteban</h1>
-				<p class="mt-2 md:text-lg">I'm a software developer aka Pillow</p>
-				<p bind:this={title_element} class="mt-2 font-light opacity-0 md:text-lg">Somebody</p>
+				<h1 class="text-5xl font-bold">Hello, I'm Esteban</h1>
+				<p class="mt-2 text-lg">I'm a software developer aka Pillow</p>
+				<p bind:this={title_element} class="mt-2 text-lg font-light opacity-0">The Goat 🐐</p>
 			</div>
 		</div>
 	</div>
-	<div
-		class="gradient-p1-p3 mt-14 flex aspect-square items-center justify-center rounded-full sm:h-44 md:mt-0 md:h-[40vh]"
-	>
+	<div class="gradient-p1-p3 flex aspect-square h-[40vh] items-center justify-center rounded-full">
 		<img
 			src="https://avatars.githubusercontent.com/u/104609738?v=4"
 			alt="Github Profile"
