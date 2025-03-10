@@ -3,15 +3,20 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--color-fg: #282623;
-	--color-fgd: #fbf7f6;
+	--color-fg: #151515;
+	--color-fgd: #f7f7f7;
 
-	--color-bg: #fbf7f6;
-	--color-bgd: #282623;
+	--color-bg: #f7f7f7;
+	--color-bgd: #151515;
+
+	--color-tint: #e1e1e1;
+	--color-tintd: #262626;
 
 	--color-primary1: #007fff;
 	--color-primary2: #f58dac;
 	--color-primary3: #cb6fe9;
+
+	--color-grad-p1-p3: linear-gradient(90deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
 }
 
 /* Google font */
@@ -37,4 +42,12 @@ body {
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
+}
+
+.gradient-p1-p3 {
+	background: rgb(0, 127, 255);
+	background: -moz-linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	background: linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff",endColorstr="#cb6fe9",GradientType=1);
 }
