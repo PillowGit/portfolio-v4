@@ -1,0 +1,40 @@
+/* Tailwind Configuration */
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-fg: #282623;
+	--color-fgd: #fbf7f6;
+
+	--color-bg: #fbf7f6;
+	--color-bgd: #282623;
+
+	--color-primary1: #007fff;
+	--color-primary2: #f58dac;
+	--color-primary3: #cb6fe9;
+}
+
+/* Google font */
+:root {
+	@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+}
+
+/* The rest */
+html {
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		background-color: var(--color-bgd);
+		color: var(--color-fgd);
+	}
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
