@@ -51,3 +51,10 @@ body {
 	background: linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff",endColorstr="#cb6fe9",GradientType=1);
 }
+.gradient-p1-p3-hori {
+	background: rgb(0, 127, 255);
+	background: -moz-linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	background: linear-gradient(90deg, rgba(0, 127, 255, 1) 0%, rgba(203, 111, 233, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff",endColorstr="#cb6fe9",GradientType=1);
+}
