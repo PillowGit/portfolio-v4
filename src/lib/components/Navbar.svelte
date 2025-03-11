@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { animate, hover } from 'motion';
+	import { animate, hover, press } from 'motion';
 	import { onMount } from 'svelte';
 
 	const pathname = page.url.pathname;
@@ -18,7 +18,7 @@
 	];
 
 	onMount(() => {
-		navitems.forEach(({ name }) => {
+		navitems.forEach(({ name, href }) => {
 			// Grab elements for each nav component
 			const diamond = document.getElementById(`${name}-diamond`);
 			const bar = document.getElementById(`${name}-bar`);
@@ -27,9 +27,12 @@
 				return;
 			}
 			// Skip the one we are on
-			if (pathname === `/${name.toLowerCase()}`) {
+			if (pathname === href) {
 				return;
 			}
+			press(outer, () => {
+				window.location.href = href;
+			});
 			// Animate on group hover
 			hover(outer, () => {
 				const diamondAnim = animate(
@@ -64,7 +67,10 @@
 		<div class="flex min-h-4 min-w-4/12 items-center">
 			<div class="mr-5"></div>
 			{#each navitems as { name, href }, i}
-				<div class="mx-5 my-8 flex flex-col items-center justify-center" id={`${name}-outer`}>
+				<div
+					class="mx-5 my-8 flex flex-col items-center justify-center hover:cursor-pointer"
+					id={`${name}-outer`}
+				>
 					<div class="flex h-2 items-center justify-center">
 						<div
 							class="gradient-p1-p3-circle aspect-square h-full opacity-0"
@@ -73,7 +79,12 @@
 					</div>
 					<div><h3 class="px-1 pt-1">{name}</h3></div>
 					<div class="flex h-2 flex-col items-center justify-end">
-						<div class="gradient-p1-p3-hori h-[1.5px] w-0" id={`${name}-bar`}></div>
+						<div
+							class={pathname === href
+								? 'gradient-p1-p3-hori h-[1.5px] w-8'
+								: 'gradient-p1-p3-hori h-[1.5px] w-0 grayscale-[90%]'}
+							id={`${name}-bar`}
+						></div>
 					</div>
 				</div>
 			{/each}
