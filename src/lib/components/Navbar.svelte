@@ -2,21 +2,9 @@
 	import { page } from '$app/state';
 	import { animate, hover, press } from 'motion';
 	import { onMount } from 'svelte';
+	import navitems from './Navitems';
 
 	let pathname = page.url.pathname;
-
-	interface NavItem {
-		name: string;
-		href: string;
-		hoverCallback?: () => void;
-	}
-	const navitems: NavItem[] = [
-		{ name: 'Home', href: '/' },
-		{ name: 'About', href: '/about' },
-		{ name: 'Projects', href: '/projects' },
-		{ name: 'Skills', href: '/skills' },
-		{ name: 'Contact', href: '/contact' }
-	];
 
 	function createHoverHandle(outer: HTMLElement, diamond: HTMLElement, bar: HTMLElement) {
 		return hover(outer, () => {
@@ -113,7 +101,6 @@
 				updateHoverEffects(pathname, href);
 			});
 		});
-		console.log('hi');
 	});
 </script>
 
