@@ -2,6 +2,7 @@ interface NavItem {
 	name: string;
 	href: string;
 	hoverCallback?: () => void;
+	elementRef?: HTMLAnchorElement;
 }
 const navitems: NavItem[] = [
 	{ name: 'Home', href: '/' },
