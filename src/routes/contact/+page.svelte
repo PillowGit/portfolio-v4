@@ -1,4 +1,22 @@
 <script lang="ts">
+	import Notification from '$lib/components/Notification.svelte';
+
+	let showingNotification: boolean = $state(false);
+	let notificationMessage: string = $state('');
+	let notificationCallback: () => void = $state(() => {});
+	let notificationTimeout: number = $state(3000);
+
+	function showNotification(message: string, time: number, callback: () => void) {
+		notificationMessage = message;
+		notificationTimeout = time;
+		notificationCallback = callback;
+		showingNotification = true;
+	}
+
+	function dismissNotification() {
+		showingNotification = false;
+	}
+
 	let name: string = $state('');
 	let contact: string = $state('');
 	let message: string = $state('');
@@ -14,10 +32,9 @@
 
 		// Check all fields
 		if (!name || !contact || !message) {
-			alert('Please fill out all fields.');
-			setTimeout(() => {
+			showNotification('Please fill out all fields', 3000, () => {
 				isSubmitting = false;
-			}, 1000);
+			});
 			return;
 		}
 
@@ -32,19 +49,16 @@
 
 			// Interpret response
 			if (res.ok) {
-				// TODO: Alert is temporary make a nicer notification later
-				alert('Message sent successfully!');
-				setTimeout(() => {
+				showNotification('Message sent!', 3000, () => {
 					name = '';
 					contact = '';
 					message = '';
 					isSubmitting = false;
-				}, 2000);
+				});
 			} else {
-				alert('Error: ' + data.error);
-				setTimeout(() => {
+				showNotification('Error: ' + data.error, 5000, () => {
 					isSubmitting = false;
-				}, 1000);
+				});
 			}
 		} catch (error: any) {
 			console.error('Error submitting form:', error);
@@ -52,6 +66,15 @@
 		}
 	}
 </script>
+
+{#if showingNotification}
+	<Notification
+		message={notificationMessage}
+		time={notificationTimeout}
+		onDismiss={dismissNotification}
+		callback={notificationCallback}
+	/>
+{/if}
 
 <div
 	class="gradient-p1-p3-hori mx-8 my-22 flex flex-col items-center justify-center rounded-xl p-[2.5px]"
