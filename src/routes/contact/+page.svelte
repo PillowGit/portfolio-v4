@@ -91,6 +91,7 @@
 					type="text"
 					id="name"
 					name="name"
+					placeholder="Pillow"
 					required
 					bind:value={name}
 					class="border-tint dark:border-tintd w-full rounded-md border-2 px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
@@ -105,6 +106,7 @@
 					id="message"
 					name="message"
 					rows="4"
+					placeholder="Hello, I would like to..."
 					required
 					bind:value={message}
 					class="border-tint dark:border-tintd w-full rounded-md border-2 px-3 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:outline-none"
@@ -120,6 +122,7 @@
 					id="contact_method"
 					name="contact_method"
 					required
+					placeholder={`etc. "@pillo. on discord"`}
 					bind:value={contact}
 					class="border-tint dark:border-tintd w-full rounded-md border-2 px-3 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:outline-none"
 				/>
