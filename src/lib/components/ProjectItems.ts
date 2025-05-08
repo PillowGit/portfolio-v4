@@ -9,7 +9,7 @@ interface ProjectItem {
 	projectImage: string;
 	projectImageAlt: string;
 	projectLinks?: ProjectLink[];
-	elementRef?: HTMLAnchorElement;
+	elementRef?: HTMLDivElement;
 }
 
 const projectItems: ProjectItem[] = [
