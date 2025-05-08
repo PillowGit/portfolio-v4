@@ -1,4 +1,5 @@
 import { json, type RequestHandler } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
 interface RequestBody {
 	message: string;
@@ -21,34 +22,31 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		// Print data to discord webhook
-		const webhook_response = await fetch(
-			'https://discord.com/api/webhooks/1369730591913803989/yA77LQcj9VOn5kKM8nb2oGyG0iNJabbqH3KZWFZ_gVNS6g0hR4U-cuMOewLdPyz92X83',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					content: '',
-					tts: false,
-					embeds: [
-						{
-							title: data.name,
-							description: data.message,
-							color: 2326507,
-							fields: [],
-							footer: {
-								text: data.contact
-							},
-							timestamp: new Date().toISOString()
-						}
-					],
-					components: [],
-					actions: {},
-					flags: 0
-				})
-			}
-		);
+		const webhook_response = await fetch(env.WEBHOOK_URL, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				content: '',
+				tts: false,
+				embeds: [
+					{
+						title: data.name,
+						description: data.message,
+						color: 2326507,
+						fields: [],
+						footer: {
+							text: data.contact
+						},
+						timestamp: new Date().toISOString()
+					}
+				],
+				components: [],
+				actions: {},
+				flags: 0
+			})
+		});
 
 		if (!webhook_response.ok) {
 			return json({ error: 'Failed to send message' }, { status: 500 });
