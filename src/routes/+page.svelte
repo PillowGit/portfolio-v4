@@ -5,19 +5,26 @@
 	const birthday: Date = new Date(2003, 3, 21);
 	// @ts-ignore
 	const age: number = Math.floor((new Date() - birthday) / 31556952000);
-	const bio: string = `I'm Esteban Escartin. I go by Pillow online. I'm a ${age} year old 4th year student at CSUF. I play a lot of osu! and Monster Hunter Wilds, and do a lot of coding in my free time. I am a former Google SWE Intern, current ACM VP at CSUF, Co-Director for Fullyhacks 2025, and an incoming Google SWE.`;
+	const bio: string = `Short About Me: I'm Esteban Escartin. I go by Pillow online. I'm a ${age} year old 4th year student at CSUF. I play a lot of osu! and Monster Hunter Wilds, and do a lot of coding in my free time. I am a former Google SWE Intern, current ACM VP at CSUF, Co-Director for Fullyhacks 2025, and an incoming Google SWE.`;
 
 	const titles: string[] = [
-		'ACM Vice President @ CSUF',
-		'Incoming Google SWE',
-		'Former Google SWE Intern',
-		'LeetCode Connessieur (800+)',
-		'Computer Science Tutor',
-		'CSUF CS Lab Assistant',
+		'Former ACM VP @ CSUF',
+		'Google SWE',
+		'LeetCode Connessieur (1000+)',
 		'Fullyhacks 2025 Co-Director',
 		'Pillow!',
 		'Hunting Horn/Dual Blades Main',
-		'Cat Lover'
+		'Cat Lover',
+		'osu! Player',
+		'Matcha Addict',
+		`${age} year old 🫨`,
+		'Aspiring Photographer',
+		'Amateur Baker',
+		'Scared of Rust',
+		'Korean Food Lover',
+		'Former Google SWE AR Intern',
+		'Vim User btw',
+		'Ashley, Hannah, Timmy, Joel 🥹🫶'
 	];
 	let title_element: HTMLParagraphElement;
 	let title_element_mobile: HTMLParagraphElement;
