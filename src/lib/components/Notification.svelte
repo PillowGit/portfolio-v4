@@ -26,11 +26,11 @@
 </script>
 
 <div
-	class="pointer-events-none absolute top-8 left-0 z-50 flex min-h-2 w-screen items-center justify-center opacity-0"
+	class="pointer-events-none fixed top-8 left-0 z-50 flex min-h-2 w-screen items-center justify-center opacity-0"
 	bind:this={notification_div}
 >
 	<div
-		class="border-tint dark:border-tintd bg-bg dark:bg-bgd flex max-w-84 flex-col items-center justify-start rounded-xl border-2"
+		class="border-tint dark:border-tintd bg-bg dark:bg-bgd flex max-w-64 flex-col items-center justify-start rounded-xl border-2 md:max-w-84"
 	>
 		<div class="h-1 w-[85%] rounded-lg"></div>
 		<p class="px-4 py-2">
