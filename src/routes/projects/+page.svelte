@@ -31,6 +31,7 @@
 						{#each item.projectLinks as link}
 							<a
 								href={link.href}
+								target="_blank"
 								class={i % 2 == 0
 									? 'border-tint dark:border-tintd hover:bg-tint dark:hover:bg-tintd rounded-lg border-2 p-1.5 transition hover:scale-115'
 									: 'border-bg dark:border-bgd hover:bg-bg dark:hover:bg-bgd rounded-lg border-2 p-1.5 transition hover:scale-115'}

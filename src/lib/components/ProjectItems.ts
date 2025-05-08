@@ -16,7 +16,7 @@ const projectItems: ProjectItem[] = [
 	{
 		projectTitle: 'GitGood',
 		projectDesc:
-			'A Leetcode style website that empowers anyone to uplaod their own coding problems and solutions, built for my CPSC-490/491 (senior capstone) class. Runs on Next.js, Vercel, Firebase, and PistonAPI.',
+			'A Leetcode style website that empowers anyone to upload their own coding problems and solutions, built for my CPSC-490/491 (senior capstone) class. Runs on Next.js, Vercel, Firebase, and PistonAPI.',
 		projectImage: '/images/gitgood.png',
 		projectImageAlt: 'GitGoods Homepage',
 		projectLinks: [
@@ -64,7 +64,7 @@ const projectItems: ProjectItem[] = [
 	{
 		projectTitle: 'Minecraft Update Bot',
 		projectDesc:
-			'My first project, a Discord bot that can be used to see the status of a Minecraft server. Runs on Discord.py and the Minecraft Server API.',
+			'My first functional project, a Discord bot that can be used to see the status of a Minecraft server. Runs on Discord.py and the Minecraft Server API.',
 		projectImage: 'https://pbs.twimg.com/media/FNda4prVkAIB9B7.png',
 		projectImageAlt: 'The Minecraft Update Bot Logo',
 		projectLinks: [
