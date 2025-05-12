@@ -1,5 +1,35 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { animate, inView } from 'motion';
+
 	import projectItems from '$lib/components/ProjectItems';
+
+	onMount(() => {
+		projectItems.forEach((item, i) => {
+			if (item.elementRef) {
+				const mul = i % 2 == 0 ? -1 : 1;
+				inView(item.elementRef, (elem, enterInfo) => {
+					const anim = animate(
+						elem,
+						{ opacity: [0, 1], x: [-20 * mul, 0] },
+						{ duration: 0.75, ease: 'easeOut' }
+					);
+					return (leaveInfo) => anim.stop();
+				});
+			}
+			if (item.mobileRef) {
+				const mul = i % 2 == 0 ? -1 : 1;
+				inView(item.mobileRef, (elem, enterInfo) => {
+					const anim = animate(
+						elem,
+						{ opacity: [0, 1], x: [-20 * mul, 0] },
+						{ duration: 0.75, ease: 'easeOut' }
+					);
+					return (leaveInfo) => anim.stop();
+				});
+			}
+		});
+	});
 </script>
 
 <div class="mt-10 h-0.5 w-0.5 md:mt-32"></div>
