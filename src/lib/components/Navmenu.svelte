@@ -36,7 +36,7 @@
 					50 * (i - navitems.length - 1) * -1
 				);
 			}
-			animate(bg_click_catcher, { top: '-100vh' }, { duration: 0.2, ease: 'easeInOut' });
+			animate(bg_click_catcher, { top: '-150vh' }, { duration: 0.2, ease: 'easeInOut' });
 		}
 	});
 
