@@ -10,6 +10,7 @@ interface ProjectItem {
 	projectImageAlt: string;
 	projectLinks?: ProjectLink[];
 	elementRef?: HTMLDivElement;
+	mobileRef?: HTMLDivElement;
 }
 
 const projectItems: ProjectItem[] = [
